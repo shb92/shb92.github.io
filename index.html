@@ -1,0 +1,212 @@
+<!-- 
+    =======================================================================
+    COPYRIGHT NOTICE
+    =======================================================================
+    Copyright © 2026 Sadiqul Islam Shehab. All Rights Reserved. 
+    
+    No portion of this code, design, or associated architectural imagery 
+    may be reproduced, distributed, or transmitted in any form or by any 
+    means without the express written permission of the copyright holder.
+    =======================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- COPYRIGHT METADATA FOR SEARCH ENGINES & SCRAPERS -->
+    <meta name="copyright" content="© 2026 Sadiqul Islam Shehab. All Rights Reserved.">
+    <meta name="author" content="Sadiqul Islam Shehab">
+    
+    <title>Sadiqul Islam Shehab | Architecture</title>
+    
+    <style>
+        /* URBANA-INSPIRED MINIMALIST TYPOGRAPHY & LAYOUT */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --base-size: 11px; /* Small, technical font size */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-stack);
+            font-size: var(--base-size);
+            line-height: 1.6;
+            margin: 0;
+            padding: 3vw 4vw;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.4;
+        }
+
+        /* HEADER & NAVIGATION GRID */
+        .header-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .site-info {
+            grid-column: 1 / 2;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            font-weight: normal;
+        }
+
+        .category-menu {
+            grid-column: 2 / 5;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .category-item {
+            display: block;
+        }
+
+        /* PROJECTS LIST (INDEX STYLE) */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 100px;
+        }
+
+        .project-list {
+            grid-column: 2 / 5;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 15px 1fr auto; 
+            gap: 15px;
+            align-items: baseline;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        /* Abstract structural marker resembling URBANA's "ui" tag */
+        .project-marker {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--text-color);
+        }
+
+        /* FOOTER (VISUAL COPYRIGHT LAYER) */
+        .footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 1px solid var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+        }
+        
+        /* RESPONSIVE DESIGN FOR MOBILE */
+        @media (max-width: 768px) {
+            .header-grid, .category-menu, .projects-container {
+                grid-template-columns: 1fr;
+            }
+            .category-menu, .project-list {
+                grid-column: 1 / -1;
+                margin-top: 30px;
+            }
+            .footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-grid">
+        <div class="site-info">
+            Sadiqul Islam Shehab
+            <div class="nav-links">
+                <a href="#info">Info</a>
+                <a href="#practice">Practice</a>
+                <a href="cv.pdf" target="_blank">Curriculum Vitae</a>
+            </div>
+        </div>
+        
+        <!-- CUSTOM ARCHITECTURAL CATEGORIES -->
+        <nav class="category-menu">
+            <a href="#rural-urban-civic" class="category-item">Rural - Urban - Civic</a>
+            <a href="#health-hospitality-leisure" class="category-item">Health - Hospitality - Leisure</a>
+            <a href="#institutional" class="category-item">Institutional</a>
+            <a href="#commercial" class="category-item">Commercial</a>
+            <a href="#home-shelter-housing" class="category-item">Home - Shelter - Housing</a>
+            <a href="#pen-ink-parametric" class="category-item">Pen - Ink - Parametric</a>
+        </nav>
+    </header>
+
+    <main class="projects-container">
+        <!-- Empty div keeps the project list aligned under the categories (Columns 2-4) -->
+        <div></div>
+        
+        <section class="project-list">
+            
+            <!-- Placeholder Project 1 -->
+            <a href="#project-link" class="project-item">
+                <span class="project-marker"></span>
+                <span class="project-title">Civic Intervention Prototype</span>
+                <span class="project-year">2025 -</span>
+            </a>
+            
+            <!-- Placeholder Project 2 -->
+            <a href="#project-link" class="project-item">
+                <span class="project-marker"></span>
+                <span class="project-title">Parametric Ink Study No. 04</span>
+                <span class="project-year">2024-25</span>
+            </a>
+
+            <!-- Placeholder Project 3 -->
+            <a href="#project-link" class="project-item">
+                <span class="project-marker"></span>
+                <span class="project-title">Modular Shelter Assembly</span>
+                <span class="project-year">2024</span>
+            </a>
+
+            <!-- Placeholder Project 4 -->
+            <a href="#project-link" class="project-item">
+                <span class="project-marker"></span>
+                <span class="project-title">Rural Hospitality Complex</span>
+                <span class="project-year">2022-23</span>
+            </a>
+            
+        </section>
+    </main>
+
+    <!-- VISUAL COPYRIGHT FOOTER -->
+    <footer class="footer">
+        <div>Architecture / Urbanism / Parametric Research</div>
+        <div>&copy; 2026 Sadiqul Islam Shehab. All Rights Reserved.</div>
+    </footer>
+
+</body>
+</html>
