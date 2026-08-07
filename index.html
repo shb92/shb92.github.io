@@ -15,19 +15,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- COPYRIGHT METADATA FOR SEARCH ENGINES & SCRAPERS -->
+    <!-- COPYRIGHT METADATA -->
     <meta name="copyright" content="© 2026 Sadiqul Islam Shehab. All Rights Reserved.">
     <meta name="author" content="Sadiqul Islam Shehab">
     
-    <title>Sadiqul Islam Shehab | Architecture</title>
+    <title>SADIQ SHEHAB | Architecture</title>
     
     <style>
-        /* URBANA-INSPIRED MINIMALIST TYPOGRAPHY & LAYOUT */
         :root {
             --bg-color: #ffffff;
             --text-color: #000000;
-            --font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            --base-size: 11px; /* Small, technical font size */
+            --font-stack: "Courier New", Courier, monospace;
+            --base-size: 11px; /* Reverted back to the small technical size */
         }
 
         body {
@@ -63,7 +62,11 @@
 
         .site-info {
             grid-column: 1 / 2;
+        }
+
+        .site-title {
             font-weight: bold;
+            font-size: 1.2em; /* Makes ONLY your name 20% larger (approx 13.2px) */
         }
 
         .nav-links {
@@ -84,7 +87,7 @@
             display: block;
         }
 
-        /* PROJECTS LIST (INDEX STYLE) */
+        /* PROJECTS LIST */
         .projects-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -108,7 +111,6 @@
             padding-bottom: 5px;
         }
 
-        /* Abstract structural marker resembling URBANA's "ui" tag */
         .project-marker {
             display: inline-block;
             width: 8px;
@@ -116,17 +118,16 @@
             background-color: var(--text-color);
         }
 
-        /* FOOTER (VISUAL COPYRIGHT LAYER) */
+        /* FOOTER */
         .footer {
             margin-top: 100px;
             padding-top: 20px;
             border-top: 1px solid var(--text-color);
             display: flex;
             justify-content: space-between;
-            font-size: 10px;
+            font-size: 11px;
         }
         
-        /* RESPONSIVE DESIGN FOR MOBILE */
         @media (max-width: 768px) {
             .header-grid, .category-menu, .projects-container {
                 grid-template-columns: 1fr;
@@ -146,7 +147,8 @@
 
     <header class="header-grid">
         <div class="site-info">
-            Sadiqul Islam Shehab
+            <!-- Name is now isolated in its own class -->
+            <div class="site-title">SADIQ SHEHAB</div>
             <div class="nav-links">
                 <a href="#info">Info</a>
                 <a href="#practice">Practice</a>
@@ -154,7 +156,6 @@
             </div>
         </div>
         
-        <!-- CUSTOM ARCHITECTURAL CATEGORIES -->
         <nav class="category-menu">
             <a href="#rural-urban-civic" class="category-item">Rural - Urban - Civic</a>
             <a href="#health-hospitality-leisure" class="category-item">Health - Hospitality - Leisure</a>
@@ -166,33 +167,28 @@
     </header>
 
     <main class="projects-container">
-        <!-- Empty div keeps the project list aligned under the categories (Columns 2-4) -->
         <div></div>
         
         <section class="project-list">
             
-            <!-- Placeholder Project 1 -->
-            <a href="#project-link" class="project-item">
+            <a href="project-01.html" class="project-item">
                 <span class="project-marker"></span>
                 <span class="project-title">Civic Intervention Prototype</span>
                 <span class="project-year">2025 -</span>
             </a>
             
-            <!-- Placeholder Project 2 -->
             <a href="#project-link" class="project-item">
                 <span class="project-marker"></span>
                 <span class="project-title">Parametric Ink Study No. 04</span>
                 <span class="project-year">2024-25</span>
             </a>
 
-            <!-- Placeholder Project 3 -->
             <a href="#project-link" class="project-item">
                 <span class="project-marker"></span>
                 <span class="project-title">Modular Shelter Assembly</span>
                 <span class="project-year">2024</span>
             </a>
 
-            <!-- Placeholder Project 4 -->
             <a href="#project-link" class="project-item">
                 <span class="project-marker"></span>
                 <span class="project-title">Rural Hospitality Complex</span>
@@ -202,7 +198,6 @@
         </section>
     </main>
 
-    <!-- VISUAL COPYRIGHT FOOTER -->
     <footer class="footer">
         <div>Architecture / Urbanism / Parametric Research</div>
         <div>&copy; 2026 Sadiqul Islam Shehab. All Rights Reserved.</div>
