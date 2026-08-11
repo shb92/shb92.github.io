@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="© 2026 Sadiqul Islam Shehab. All Rights Reserved.">
+    
+    <title>CHICAGO LAKESIDE CENTER REIMAGINED | SADIQ SHEHAB</title>
+    
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --font-stack: "Courier New", Courier, monospace;
+            --base-size: 11px; 
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-stack);
+            font-size: var(--base-size);
+            line-height: 1.6;
+            margin: 0;
+            padding: 3vw 4vw;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        a { color: var(--text-color); text-decoration: none; transition: opacity 0.2s ease; }
+        a:hover { opacity: 0.4; }
+
+        .nav-back { margin-bottom: 60px; display: block; }
+        .project-header { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
+        .project-title-area { grid-column: 2 / 5; }
+        .project-title { font-weight: bold; margin-bottom: 10px; font-size: 1.2em; }
+        .project-meta { color: #666; margin-bottom: 40px; }
+        
+        .project-gallery { grid-column: 2 / 5; display: flex; flex-direction: column; gap: 40px; }
+        .project-gallery img { width: 100%; height: auto; display: block; }
+        
+        .project-description { grid-column: 2 / 5; margin-top: 40px; margin-bottom: 100px; text-transform: none; }
+        
+        @media (max-width: 768px) {
+            .project-header, .project-title-area, .project-gallery, .project-description {
+                grid-template-columns: 1fr;
+                grid-column: 1 / -1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="nav-back">← Back to Index</a>
+
+    <main class="project-header">
+        <div></div>
+        
+        <div class="project-title-area">
+            <div class="project-title">CHICAGO LAKESIDE CENTER REIMAGINED</div>
+            <div class="project-meta">Rural - Urban - Civic / 2025 - </div>
+            
+            <div class="project-gallery">
+                <!-- Using your custom naming convention -->
+                <img src="MPEA-1.jpg" alt="Render of Chicago Lakeside Center Reimagined - Main View">
+                <img src="MPEA-2.jpg" alt="Floor plan for Chicago Lakeside Center Reimagined">
+                <img src="MPEA-3.jpg" alt="Interior structural detail of Lakeside Center Reimagined">
+            </div>
+
+            <div class="project-description">
+                A critical reimagining of Gene Summers' brutalist McCormick Place East. This intervention acts as a mediator between the dense urban fabric of Chicago and the immediate lakefront. Utilizing locally sourced materials and parametric structural principles, the space is designed to facilitate communal gathering while respecting the heavy, monumental geometry of the existing context.
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
