@@ -72,7 +72,7 @@
             flex-direction: column;
         }
 
-        /* PROJECT GALLERY GRID */
+        /* PROJECT GALLERY GRID & ANIMATION CLASSES */
         .gallery {
             margin-bottom: 100px;
         }
@@ -81,15 +81,30 @@
             display: flex;
             flex-direction: column;
             margin-bottom: 40px;
+            
+            /* Animation properties for filtering */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .project-card.fade-out {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none; /* Prevents clicking invisible items */
+        }
+
+        .project-card.hidden {
+            display: none; /* Removes from grid to force reflow */
         }
 
         .project-card img {
             width: 100%;
             height: auto;
-            aspect-ratio: 16 / 9; /* Keeps all thumbnails uniform */
+            aspect-ratio: 16 / 9; 
             object-fit: cover;
             margin-bottom: 10px;
-            filter: grayscale(100%); /* Optional: removes color for consistency, remove if you want full color */
+            filter: grayscale(100%); 
             transition: filter 0.3s;
         }
 
@@ -115,11 +130,12 @@
         <!-- Column 1 -->
         <div class="nav-column">
             <div>
-                <div class="brand-name">SADIQ SHEHAB</div>
+                <!-- Logo acts as the "Reset / All Projects" button -->
+                <a href="index.html" class="brand-name" data-filter="all">SADIQ SHEHAB</a>
             </div>
             <div class="nav-group">
-                <a href="#">Rural - Urban - Civic</a>
-                <a href="#">Health - Hospitality</a>
+                <a href="#" data-filter="rural-urban-civic">Rural - Urban - Civic</a>
+                <a href="#" data-filter="health-hospitality-leisure">Health - Hospitality - Leisure</a>
             </div>
         </div>
 
@@ -130,8 +146,8 @@
                 <a href="#">Exhibitions</a>
             </div>
             <div class="nav-group">
-                <a href="#">Institutional</a>
-                <a href="#">Commercial</a>
+                <a href="#" data-filter="institutional">Institutional</a>
+                <a href="#" data-filter="commercial">Commercial</a>
             </div>
         </div>
 
@@ -142,8 +158,8 @@
                 <a href="cv.pdf" target="_blank">Curriculum Vitae</a>
             </div>
             <div class="nav-group">
-                <a href="#">Home - Shelter</a>
-                <a href="#">Pen - Ink - Parametric</a>
+                <a href="#" data-filter="home-shelter-housing">Home - Shelter - Housing</a>
+                <a href="#" data-filter="pen-ink-parametric">Pen - Ink - Parametric</a>
             </div>
         </div>
 
@@ -159,31 +175,68 @@
     <main class="gallery grid-4">
         
         <!-- PROJECT 1 -->
-        <a href="project-01.html" class="project-card">
-            <!-- Ensure you have a thumbnail image uploaded named thumb-1.jpg -->
+        <a href="project-01.html" class="project-card" data-category="rural-urban-civic">
             <img src="MPEA-1.jpg" alt="Chicago Lakeside Center">
             <div class="project-title">CHICAGO LAKESIDE CENTER REIMAGINED 2025 -</div>
         </a>
 
         <!-- PROJECT 2 (Placeholder) -->
-        <a href="#" class="project-card">
+        <a href="#" class="project-card" data-category="pen-ink-parametric">
             <img src="MPEA-2.jpg" alt="Project 2">
             <div class="project-title">PARAMETRIC INK STUDY NO. 04 2024-25</div>
         </a>
 
         <!-- PROJECT 3 (Placeholder) -->
-        <a href="#" class="project-card">
+        <a href="#" class="project-card" data-category="home-shelter-housing">
             <img src="MPEA-3.jpg" alt="Project 3">
             <div class="project-title">MODULAR SHELTER ASSEMBLY 2024</div>
         </a>
 
         <!-- PROJECT 4 (Placeholder) -->
-        <a href="#" class="project-card">
+        <a href="#" class="project-card" data-category="health-hospitality-leisure">
             <img src="MPEA-4.jpg" alt="Project 4">
             <div class="project-title">RURAL HOSPITALITY COMPLEX 2022-23</div>
         </a>
         
     </main>
 
+    <!-- JAVASCRIPT FOR FADE & REFLOW FILTERING -->
+    <script>
+        const filterLinks = document.querySelectorAll('a[data-filter]');
+        const projects = document.querySelectorAll('.project-card');
+
+        filterLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Only prevent default if it's not the logo linking to index.html
+                if (link.getAttribute('href') === '#') {
+                    e.preventDefault(); 
+                }
+                
+                const filterValue = link.getAttribute('data-filter');
+
+                projects.forEach(project => {
+                    const category = project.getAttribute('data-category');
+
+                    if (filterValue === 'all' || filterValue === category) {
+                        // Show project
+                        project.classList.remove('hidden');
+                        
+                        setTimeout(() => {
+                            project.classList.remove('fade-out');
+                        }, 50); 
+                    } else {
+                        // Hide project
+                        project.classList.add('fade-out');
+                        
+                        setTimeout(() => {
+                            if (project.classList.contains('fade-out')) {
+                                project.classList.add('hidden');
+                            }
+                        }, 500); 
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
