@@ -11,22 +11,19 @@
     Email to author: shehab.sdim@gmail.com
     ======================================================================= 
 -->
+<!-- COPYRIGHT © 2026 Sadiqul Islam Shehab. All Rights Reserved. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="copyright" content="© 2026 Sadiqul Islam Shehab. All Rights Reserved.">
-    <meta name="author" content="Sadiqul Islam Shehab">
-    
     <title>SADIQ SHEHAB | Architecture</title>
-    
     <style>
         :root {
             --bg-color: #ffffff;
             --text-color: #000000;
             --font-stack: "Courier New", Courier, monospace;
-            --base-size: 11px; 
+            --base-size: 11px;
         }
 
         body {
@@ -34,136 +31,159 @@
             color: var(--text-color);
             font-family: var(--font-stack);
             font-size: var(--base-size);
-            line-height: 1.6;
+            line-height: 2;
             margin: 0;
             padding: 3vw 4vw;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        a { color: var(--text-color); text-decoration: none; cursor: pointer; transition: opacity 0.2s ease; }
-        a:hover { opacity: 0.4; }
+        a { color: var(--text-color); text-decoration: none; cursor: pointer; }
+        a:hover { opacity: 0.5; }
 
-        .header-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 80px; }
-        .site-info { grid-column: 1 / 2; }
-        .site-title { font-weight: bold; font-size: 1.2em; }
-        .nav-links { margin-top: 20px; display: flex; flex-direction: column; font-weight: normal; }
-        
-        .category-menu { grid-column: 2 / 5; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        
-        /* Added an active state class for JS filtering */
-        .category-item.active { font-weight: bold; }
-
-        .projects-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 100px; }
-        .project-list { grid-column: 2 / 5; display: flex; flex-direction: column; gap: 10px; }
-        
-        .project-item { 
-            display: grid; 
-            grid-template-columns: 15px 1fr auto; 
-            gap: 15px; 
-            align-items: baseline; 
-            border-bottom: 1px solid #f0f0f0; 
-            padding-bottom: 5px; 
+        /* THE STRICT 4-COLUMN GRID */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
 
-        .project-marker { display: inline-block; width: 8px; height: 8px; background-color: var(--text-color); }
+        /* HEADER NAVIGATION STYLES */
+        .site-header {
+            margin-bottom: 80px;
+        }
 
-        .footer { margin-top: 100px; padding-top: 20px; border-top: 1px solid var(--text-color); display: flex; justify-content: space-between; font-size: 11px; }
+        .brand-name {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            display: inline-block;
+            padding: 0 4px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .nav-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
         
-        @media (max-width: 768px) {
-            .header-grid, .category-menu, .projects-container { grid-template-columns: 1fr; }
-            .category-menu, .project-list { grid-column: 1 / -1; margin-top: 30px; }
-            .footer { flex-direction: column; gap: 10px; }
+        .nav-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* PROJECT GALLERY GRID */
+        .gallery {
+            margin-bottom: 100px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9; /* Keeps all thumbnails uniform */
+            object-fit: cover;
+            margin-bottom: 10px;
+            filter: grayscale(100%); /* Optional: removes color for consistency, remove if you want full color */
+            transition: filter 0.3s;
+        }
+
+        .project-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        .project-title {
+            text-align: left;
+        }
+
+        @media (max-width: 900px) {
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .grid-4 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header-grid">
-        <div class="site-info">
-            <div class="site-title">SADIQ SHEHAB</div>
-            <div class="nav-links">
-                <a href="#info">Info</a>
-                <a href="#practice">Practice</a>
-                <a href="cv.pdf" target="_blank">Curriculum Vitae</a>
+    <header class="site-header grid-4">
+        <!-- Column 1 -->
+        <div class="nav-column">
+            <div>
+                <div class="brand-name">SADIQ SHEHAB</div>
+            </div>
+            <div class="nav-group">
+                <a href="#">Rural - Urban - Civic</a>
+                <a href="#">Health - Hospitality</a>
             </div>
         </div>
-        
-        <nav class="category-menu">
-            <!-- Added 'data-filter' attributes for JavaScript to read -->
-            <a href="#" class="category-item active" data-filter="all">All Categories</a>
-            <a href="#" class="category-item" data-filter="rural-urban-civic">Rural - Urban - Civic</a>
-            <a href="#" class="category-item" data-filter="health-hospitality-leisure">Health - Hospitality - Leisure</a>
-            <a href="#" class="category-item" data-filter="institutional">Institutional</a>
-            <a href="#" class="category-item" data-filter="commercial">Commercial</a>
-            <a href="#" class="category-item" data-filter="home-shelter-housing">Home - Shelter - Housing</a>
-            <a href="#" class="category-item" data-filter="pen-ink-parametric">Pen - Ink - Parametric</a>
-        </nav>
+
+        <!-- Column 2 -->
+        <div class="nav-column">
+            <div class="nav-group">
+                <a href="#">Built/Unbuilt</a>
+                <a href="#">Exhibitions</a>
+            </div>
+            <div class="nav-group">
+                <a href="#">Institutional</a>
+                <a href="#">Commercial</a>
+            </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="nav-column">
+            <div class="nav-group">
+                <a href="#">Practice</a>
+                <a href="cv.pdf" target="_blank">Curriculum Vitae</a>
+            </div>
+            <div class="nav-group">
+                <a href="#">Home - Shelter</a>
+                <a href="#">Pen - Ink - Parametric</a>
+            </div>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="nav-column">
+            <div class="nav-group">
+                <a href="#">Info</a>
+                <a href="#">News</a>
+            </div>
+        </div>
     </header>
 
-    <main class="projects-container">
-        <div></div>
+    <main class="gallery grid-4">
         
-        <section class="project-list">
-            
-            <!-- Project 1 with data-category mapped to the filter -->
-            <a href="project-01.html" class="project-item" data-category="rural-urban-civic">
-                <span class="project-marker"></span>
-                <span class="project-title">CHICAGO LAKESIDE CENTER REIMAGINED</span>
-                <span class="project-year">2025 -</span>
-            </a>
-            
-            <a href="#project-link" class="project-item" data-category="pen-ink-parametric">
-                <span class="project-marker"></span>
-                <span class="project-title">Parametric Ink Study No. 04</span>
-                <span class="project-year">2024-25</span>
-            </a>
+        <!-- PROJECT 1 -->
+        <a href="project-01.html" class="project-card">
+            <!-- Ensure you have a thumbnail image uploaded named thumb-1.jpg -->
+            <img src="MPEA-1.jpg" alt="Chicago Lakeside Center">
+            <div class="project-title">CHICAGO LAKESIDE CENTER REIMAGINED 2025 -</div>
+        </a>
 
-            <a href="#project-link" class="project-item" data-category="home-shelter-housing">
-                <span class="project-marker"></span>
-                <span class="project-title">Modular Shelter Assembly</span>
-                <span class="project-year">2024</span>
-            </a>
+        <!-- PROJECT 2 (Placeholder) -->
+        <a href="#" class="project-card">
+            <img src="MPEA-2.jpg" alt="Project 2">
+            <div class="project-title">PARAMETRIC INK STUDY NO. 04 2024-25</div>
+        </a>
 
-            <a href="#project-link" class="project-item" data-category="health-hospitality-leisure">
-                <span class="project-marker"></span>
-                <span class="project-title">Rural Hospitality Complex</span>
-                <span class="project-year">2022-23</span>
-            </a>
-            
-        </section>
+        <!-- PROJECT 3 (Placeholder) -->
+        <a href="#" class="project-card">
+            <img src="MPEA-3.jpg" alt="Project 3">
+            <div class="project-title">MODULAR SHELTER ASSEMBLY 2024</div>
+        </a>
+
+        <!-- PROJECT 4 (Placeholder) -->
+        <a href="#" class="project-card">
+            <img src="MPEA-4.jpg" alt="Project 4">
+            <div class="project-title">RURAL HOSPITALITY COMPLEX 2022-23</div>
+        </a>
+        
     </main>
 
-    <footer class="footer">
-        <div>Architecture / Urbanism / Parametric Research</div>
-        <div>&copy; 2026 Sadiqul Islam Shehab. All Rights Reserved.</div>
-    </footer>
-
-    <!-- JAVASCRIPT FOR CATEGORY FILTERING -->
-    <script>
-        const categoryLinks = document.querySelectorAll('.category-item');
-        const projects = document.querySelectorAll('.project-item');
-
-        categoryLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevents the page from jumping to the top
-                
-                // Remove bold 'active' class from all links, add to the clicked one
-                categoryLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-
-                const filterValue = this.getAttribute('data-filter');
-
-                // Loop through projects and hide/show based on category
-                projects.forEach(project => {
-                    if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
-                        project.style.display = 'grid';
-                    } else {
-                        project.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
