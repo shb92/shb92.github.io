@@ -1,0 +1,160 @@
+<!-- COPYRIGHT © 2026 Sadiqul Islam Shehab. All Rights Reserved. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYBRID MIXED-INCOME HIGHRISE HOUSING | SADIQ SHEHAB</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --font-stack: "Courier New", Courier, monospace;
+            --base-size: 11px;
+        }
+
+        /* Lock the body to the size of the screen so it doesn't scroll */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-stack);
+            font-size: var(--base-size);
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+            overflow: hidden; 
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        a { color: var(--text-color); text-decoration: none; cursor: pointer; }
+        a:hover { opacity: 0.5; }
+
+        /* OVERLAY HEADER ITEMS */
+        .header-left {
+            position: absolute;
+            top: 2vw;
+            left: 2vw;
+            z-index: 10;
+        }
+
+        .header-right {
+            position: absolute;
+            top: 2vw;
+            right: 2vw;
+            z-index: 10;
+        }
+
+        .brand-name {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            display: inline-block;
+            padding: 2px 6px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .category-box {
+            border: 1px solid var(--text-color);
+            display: inline-block;
+            padding: 2px 6px;
+        }
+
+        /* FULLSCREEN IMAGE CONTAINER */
+        .image-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5vw; /* Keeps the image slightly off the edges */
+            box-sizing: border-box;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensures the whole image is visible without cropping */
+        }
+
+        /* LEFT AND RIGHT ARROWS */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 10;
+            color: var(--text-color);
+            padding: 20px;
+            font-family: monospace; /* Keeps the arrows crisp */
+        }
+        
+        .nav-arrow:hover { opacity: 0.5; }
+        .arrow-left { left: 1vw; }
+        .arrow-right { right: 1vw; }
+
+    </style>
+</head>
+<body>
+
+    <!-- OVERLAY HEADER -->
+    <div class="header-left">
+        <a href="index.html" class="brand-name">SADIQ SHEHAB</a><br>
+        <div class="category-box">RURAL - URBAN - CIVIC</div>
+    </div>
+    
+    <div class="header-right">
+        <a href="index.html">INFO</a>
+    </div>
+
+    <!-- NAVIGATION ARROWS -->
+    <button class="nav-arrow arrow-left" onclick="prevImage()">&#10094;</button>
+    <button class="nav-arrow arrow-right" onclick="nextImage()">&#10095;</button>
+
+    <!-- FULLSCREEN IMAGE -->
+    <div class="image-container">
+        <!-- The ID allows JS to target and swap this specific image -->
+        <img id="project-main-image" src="assets/TRNS-1.jpg" alt="HYBRID MIXED-INCOME HIGHRISE HOUSING">
+    </div>
+
+    <!-- JAVASCRIPT FOR IMAGE SLIDER -->
+    <script>
+        // Array of your exact image names for this project
+        const images = [
+            "assets/TRNS-1.jpg",
+            "assets/TRNS-2.jpg",
+            "assets/TRNS-3.jpg",
+            "assets/TRNS-4.jpg",
+            "assets/TRNS-5.jpg",
+            "assets/TRNS-6.jpg",
+            "assets/TRNS-7.jpg",
+            "assets/TRNS-8.jpg",
+            "assets/TRNS-9.jpg"
+        ];
+        
+        let currentIndex = 0;
+        const mainImage = document.getElementById("project-main-image");
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            mainImage.src = images[currentIndex];
+        }
+
+        function prevImage() {
+            // Adds images.length to handle negative index wrapping
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            mainImage.src = images[currentIndex];
+        }
+        
+        // Optional: Allow user to use keyboard arrows to switch images
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') nextImage();
+            if (event.key === 'ArrowLeft') prevImage();
+        });
+    </script>
+</body>
+</html>
